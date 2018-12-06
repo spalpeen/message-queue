@@ -17,15 +17,20 @@ import javax.annotation.Resource;
 public class ProducerController {
 
     @Resource
-    private ProducerService producerService;
+    private ProducerService kafkaProducerService;
+
+    @Resource
+    private ProducerService streamProducerService;
+
+    @Resource
+    private ProducerService activeMqProducerService;
 
     @RequestMapping("producer")
     public ApiResult Producer(@RequestParam(value = "topic") String topic,
                               @RequestParam(value = "batch") String batch,
                               @RequestParam(value = "level") String level,
                               @RequestParam(value = "lose") boolean lose,
-                              @RequestParam(value = "content") String content)
-    {
+                              @RequestParam(value = "content") String content) {
 
         try {
             if (content == null) {
@@ -41,10 +46,22 @@ public class ProducerController {
             }
             requestParams.setTopic(topic);
             requestParams.setBatch(batch);
-            requestParams.setLevel(level);
             requestParams.setLose(lose);
             requestParams.setContent(content);
-            int resultCode = producerService.setMessageToQueue(requestParams);
+
+            int resultCode = -1;
+
+            if (level.equals(Constant.STREAMLEVEL)) {
+                resultCode = streamProducerService.setMessageToQueue(requestParams);
+            }
+
+            if (level.equals(Constant.KAFKALEVEL)) {
+                resultCode = kafkaProducerService.setMessageToQueue(requestParams);
+            }
+
+            if (level.equals(Constant.ACTIVEMQLEVEL)) {
+                resultCode = activeMqProducerService.setMessageToQueue(requestParams);
+            }
             return ApiResult.successResult(resultCode);
         } catch (Exception e) {
             return ApiResult.failResult(-1, "error");

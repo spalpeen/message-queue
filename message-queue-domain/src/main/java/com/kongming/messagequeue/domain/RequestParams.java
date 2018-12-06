@@ -13,11 +13,6 @@ public class RequestParams {
     private String batch;
 
     /**
-     * 级别
-     */
-    private String level;
-
-    /**
      * 是否允许丢失
      */
     private boolean lose;
@@ -41,14 +36,6 @@ public class RequestParams {
 
     public void setBatch(String batch) {
         this.batch = batch;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 
     public boolean isLose() {

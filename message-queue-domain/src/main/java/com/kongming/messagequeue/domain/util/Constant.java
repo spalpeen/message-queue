@@ -8,17 +8,17 @@ public class Constant {
     /**
      * level 等级1为Redis Stream
      */
-    public static final int STREAMLEVEL = 1;
+    public static final String STREAMLEVEL = "1";
 
     /**
      * level 等级2为kafka
      */
-    public static final int KAFKALEVEL = 2;
+    public static final String KAFKALEVEL = "2";
 
     /**
      * level 等级3为RbMQ
      */
-    public static final int ACTIVEMQLEVEL = 3;
+    public static final String ACTIVEMQLEVEL = "3";
 
     /**
      * topic config
