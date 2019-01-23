@@ -1,4 +1,4 @@
-package com.kongming.messagequeue.web.controller;
+package com.kongming.messagequeue.controller;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;

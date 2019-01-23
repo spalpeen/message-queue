@@ -1,4 +1,4 @@
-package com.kongming.messagequeue.web.controller;
+package com.kongming.messagequeue.controller;
 
 import com.kongming.messagequeue.domain.RequestParams;
 

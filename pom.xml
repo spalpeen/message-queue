@@ -10,6 +10,8 @@
         <module>message-queue-service</module>
 		<module>message-queue-web</module>
 		<module>message-queue-domain</module>
+		<module>message-queue-dao</module>
+		<module>message-queue-common</module>
 	</modules>
     <packaging>pom</packaging>
 
